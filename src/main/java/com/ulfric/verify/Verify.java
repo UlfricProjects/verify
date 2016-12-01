@@ -3,6 +3,7 @@ package com.ulfric.verify;
 import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Type;
 import java.util.Optional;
+import java.util.function.Supplier;
 
 public class Verify<T> {
 
@@ -39,6 +40,11 @@ public class Verify<T> {
 	public static OptionalSubject that(Optional<?> optional)
 	{
 		return new OptionalSubject(optional);
+	}
+
+	public static SupplierSubject that(Supplier<?> supplier)
+	{
+		return new SupplierSubject(supplier);
 	}
 
 	private Verify() { }
