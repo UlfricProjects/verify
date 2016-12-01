@@ -2,6 +2,7 @@ package com.ulfric.verify;
 
 import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Type;
+import java.util.Optional;
 
 public class Verify<T> {
 
@@ -33,6 +34,11 @@ public class Verify<T> {
 	public static AccessibleSubject that(AccessibleObject accessible)
 	{
 		return new AccessibleSubject(accessible);
+	}
+
+	public static OptionalSubject that(Optional<?> optional)
+	{
+		return new OptionalSubject(optional);
 	}
 
 	private Verify() { }
