@@ -1,13 +1,13 @@
 package com.ulfric.verify;
 
-public final class ExecutableSubject extends Subject<Executable> {
+public class ExecutableSubject<T extends Executable> extends Subject<T> {
 
-	ExecutableSubject(Executable subject)
+	ExecutableSubject(T subject)
 	{
 		super(subject);
 	}
 
-	public ThrowableSubject rescue()
+	public final ThrowableSubject rescue()
 	{
 		try
 		{
@@ -21,7 +21,7 @@ public final class ExecutableSubject extends Subject<Executable> {
 		throw new VerificationException();
 	}
 
-	public void doesThrow(Class<? extends Throwable> throwable)
+	public final void doesThrow(Class<? extends Throwable> throwable)
 	{
 		try
 		{
@@ -38,7 +38,7 @@ public final class ExecutableSubject extends Subject<Executable> {
 		throw new VerificationException();
 	}
 
-	public void doesThrow(Class<? extends Throwable> throwable, String message)
+	public final void doesThrow(Class<? extends Throwable> throwable, String message)
 	{
 		try
 		{

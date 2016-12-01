@@ -3,7 +3,6 @@ package com.ulfric.verify;
 import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Type;
 import java.util.Optional;
-import java.util.function.Supplier;
 
 public class Verify<T> {
 
@@ -22,9 +21,14 @@ public class Verify<T> {
 		return new TypeSubject<>(type);
 	}
 
-	public static ExecutableSubject that(Executable executable)
+	public static <T extends Executable> ExecutableSubject<T> that(T executable)
 	{
-		return new ExecutableSubject(executable);
+		return new ExecutableSubject<>(executable);
+	}
+
+	public static ProducerSubject that(Producer producer)
+	{
+		return new ProducerSubject(producer);
 	}
 
 	public static ThrowableSubject that(Throwable throwable)
@@ -40,11 +44,6 @@ public class Verify<T> {
 	public static OptionalSubject that(Optional<?> optional)
 	{
 		return new OptionalSubject(optional);
-	}
-
-	public static SupplierSubject that(Supplier<?> supplier)
-	{
-		return new SupplierSubject(supplier);
 	}
 
 	private Verify() { }
