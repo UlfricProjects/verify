@@ -4,7 +4,7 @@ import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Type;
 import java.util.Optional;
 
-public class Verify<T> {
+public class Verify {
 
 	public static ObjectSubject that(Object object)
 	{
