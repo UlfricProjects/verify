@@ -1,6 +1,5 @@
 package com.ulfric.verify;
 
-@FunctionalInterface
 public interface Producer extends Executable {
 
 	@Override

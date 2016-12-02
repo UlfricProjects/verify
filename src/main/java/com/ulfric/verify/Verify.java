@@ -16,7 +16,7 @@ public class Verify<T> {
 		return new BooleanSubject(bool);
 	}
 
-	public static <T extends Type> TypeSubject<T> that(T type)
+	public static TypeSubject<Type> that(Type type)
 	{
 		return new TypeSubject<>(type);
 	}
@@ -26,7 +26,7 @@ public class Verify<T> {
 		return new ClassSubject(clazz);
 	}
 
-	public static <T extends Executable> ExecutableSubject<T> that(T executable)
+	public static ExecutableSubject<Executable> that(Executable executable)
 	{
 		return new ExecutableSubject<>(executable);
 	}
