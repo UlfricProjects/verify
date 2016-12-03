@@ -25,4 +25,28 @@ public final class IntegerSubject extends Subject<Integer> {
 		this.fail("zero");
 	}
 
+	public IntegerSubject plus(int amount)
+	{
+		this.isNotNull();
+
+		if (amount == 0)
+		{
+			return this;
+		}
+
+		return new IntegerSubject(this.subject + amount);
+	}
+
+	public IntegerSubject minus(int amount)
+	{
+		this.isNotNull();
+
+		if (amount == 0)
+		{
+			return this;
+		}
+
+		return new IntegerSubject(this.subject - amount);
+	}
+
 }
