@@ -2,7 +2,7 @@ package com.ulfric.verify;
 
 public final class BooleanSubject extends Subject<Boolean> {
 
-	BooleanSubject(boolean subject)
+	BooleanSubject(Boolean subject)
 	{
 		super(subject);
 	}
