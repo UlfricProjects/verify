@@ -36,37 +36,37 @@ class ObjectSubjectTest extends VerificationTest {
 	@Test
 	void testIsSameOnDifferentObjects()
 	{
-		this.expect("Subject was 1, expected 2", () -> Verify.that(Example.ONE).isSame(Example.TWO));
+		this.expect("Subject was 1, expected 2", () -> Verify.that(Example.ONE).isSameAs(Example.TWO));
 	}
 
 	@Test
 	void testIsSameOnDifferentObjectsThatEquals()
 	{
-		this.expect("Subject was 1, expected 1", () -> Verify.that(Example.ONE).isSame(Example.ONE.clone()));
+		this.expect("Subject was 1, expected 1", () -> Verify.that(Example.ONE).isSameAs(Example.ONE.clone()));
 	}
 
 	@Test
 	void testIsSameOnSameObject()
 	{
-		Verify.that(Example.ONE).isSame(Example.ONE);
+		Verify.that(Example.ONE).isSameAs(Example.ONE);
 	}
 
 	@Test
 	void testIsNotSameOnSameObject()
 	{
-		this.expect("Subject was 1, expected anything but 1", () -> Verify.that(Example.ONE).isNotSame(Example.ONE));
+		this.expect("Subject was 1, expected anything but 1", () -> Verify.that(Example.ONE).isNotSameAs(Example.ONE));
 	}
 
 	@Test
 	void testIsNotSameOnDifferentThings()
 	{
-		Verify.that(Example.ONE).isNotSame(Example.TWO);
+		Verify.that(Example.ONE).isNotSameAs(Example.TWO);
 	}
 
 	@Test
 	void testIsNotSameOnDifferentThingsThatEquals()
 	{
-		Verify.that(Example.ONE).isNotSame(Example.ONE.clone());
+		Verify.that(Example.ONE).isNotSameAs(Example.ONE.clone());
 	}
 
 	static final class Example implements Cloneable

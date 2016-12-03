@@ -27,28 +27,28 @@ public class Subject<T> {
 		this.fail(null);
 	}
 
-	public final void isSame(Object other)
+	public final void isSameAs(Object other)
 	{
 		if (this.subject == other) return;
 
 		this.fail(other);
 	}
 
-	public final void isNotSame(Object other)
+	public final void isNotSameAs(Object other)
 	{
 		if (this.subject != other) return;
 
 		this.fail("anything but " + other);
 	}
 
-	public final void isEqual(Object other)
+	public final void isEqualTo(Object other)
 	{
 		if (EqualsBuilder.reflectionEquals(this.subject, other)) return;
 
 		this.fail(other);
 	}
 
-	public final void isNotEqual(Object other)
+	public final void isNotEqualTo(Object other)
 	{
 		if (!EqualsBuilder.reflectionEquals(this.subject, other)) return;
 
