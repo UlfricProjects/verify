@@ -16,6 +16,11 @@ public class Verify {
 		return new BooleanSubject(bool);
 	}
 
+	public static IntegerSubject that(Integer integer)
+	{
+		return new IntegerSubject(integer);
+	}
+
 	public static TypeSubject<Type> that(Type type)
 	{
 		return new TypeSubject<>(type);
