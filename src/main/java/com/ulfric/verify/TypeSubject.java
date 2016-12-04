@@ -6,81 +6,93 @@ import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
 import java.lang.reflect.WildcardType;
 
-public class TypeSubject<T extends Type> extends Subject<T> {
+import com.ulfric.verify.verb.TypeVerb;
 
-	protected TypeSubject(T subject)
+class TypeSubject<T extends Type> extends ObjectSubject<T> implements TypeVerb<T> {
+
+	TypeSubject(T subject)
 	{
 		super(subject);
 	}
 
+	@Override
 	public final void isClass()
 	{
 		if (this.subject instanceof Class) return;
 
-		this.fail("any Class");
+		this.error("expected a Class, got a " + this.escape(this.subject.getClass()));
 	}
 
+	@Override
 	public final void isNotClass()
 	{
 		if (!(this.subject instanceof Class)) return;
 
-		this.fail("anything other than a Class");
+		this.error("expected anything but a Class, got a " + this.escape(this.subject.getClass()));
 	}
 
+	@Override
 	public final void isParameterizedType()
 	{
 		if (this.subject instanceof ParameterizedType) return;
 
-		this.fail("a ParameterizedType");
+		this.error("expected a ParameterizedType, got a " + this.escape(this.subject.getClass()));
 	}
 
+	@Override
 	public final void isNotParameterizedType()
 	{
 		if (!(this.subject instanceof ParameterizedType)) return;
 
-		this.fail("anything other than a ParameterizedType");
+		this.error("expected anything but a ParameterizedType, got a " + this.escape(this.subject.getClass()));
 	}
 
+	@Override
 	public final void isGenericArrayType()
 	{
 		if (this.subject instanceof GenericArrayType) return;
 
-		this.fail("a GenericArrayType");
+		this.error("expected a GenericArrayType, got a " + this.escape(this.subject.getClass()));
 	}
 
+	@Override
 	public final void isNotGenericArrayType()
 	{
 		if (!(this.subject instanceof GenericArrayType)) return;
 
-		this.fail("anything other than a GenericArrayType");
+		this.error("expected anything but a GenericArrayType, got a " + this.escape(this.subject.getClass()));
 	}
 
+	@Override
 	public final void isWildcardType()
 	{
 		if (this.subject instanceof WildcardType) return;
 
-		this.fail("a WildcardType");
+		this.error("expected a WildcardType, got a " + this.escape(this.subject.getClass()));
 	}
 
+	@Override
 	public final void isNotWildcardType()
 	{
 		if (!(this.subject instanceof WildcardType)) return;
 
-		this.fail("anything other than a WildcardType");
+		this.error("expected anything but a WildcardType, got a " + this.escape(this.subject.getClass()));
 	}
 
+	@Override
 	public final void isTypeVariable()
 	{
 		if (this.subject instanceof TypeVariable) return;
 
-		this.fail("a TypeVariable");
+		this.error("expected a TypeVariable, got a " + this.escape(this.subject.getClass()));
 	}
 
+	@Override
 	public final void isNotTypeVariable()
 	{
 		if (!(this.subject instanceof TypeVariable)) return;
 
-		this.fail("anything other than a TypeVariable");
+		this.error("expected anything but a TypeVariable, got a " + this.escape(this.subject.getClass()));
 	}
 
 }

@@ -1,19 +1,22 @@
 package com.ulfric.verify;
 
-public final class ClassSubject extends TypeSubject<Class<?>> {
+import com.ulfric.verify.verb.ClassVerb;
+
+class ClassSubject extends TypeSubject<Class<?>> implements ClassVerb {
 
 	ClassSubject(Class<?> subject)
 	{
 		super(subject);
 	}
 
-	public void isAssignableTo(Class<?> clazz)
+	@Override
+	public final void isAssignableTo(Class<?> clazz)
 	{
 		this.isNotNull();
 
 		if (clazz.isAssignableFrom(this.subject)) return;
 
-		this.fail(" something assignable from " + clazz);
+		this.error("expected something assignable from " + this.escape(clazz) + ", got " + this.escape(this.subject));
 	}
 
 }

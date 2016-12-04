@@ -4,56 +4,69 @@ import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Type;
 import java.util.Optional;
 
+import com.ulfric.verify.function.CheckedRunnable;
+import com.ulfric.verify.function.CheckedSupplier;
+import com.ulfric.verify.verb.AccessibleVerb;
+import com.ulfric.verify.verb.BooleanVerb;
+import com.ulfric.verify.verb.ClassVerb;
+import com.ulfric.verify.verb.IntegerVerb;
+import com.ulfric.verify.verb.ObjectVerb;
+import com.ulfric.verify.verb.OptionalVerb;
+import com.ulfric.verify.verb.RunnableVerb;
+import com.ulfric.verify.verb.SupplierVerb;
+import com.ulfric.verify.verb.ThrowableVerb;
+import com.ulfric.verify.verb.TypeVerb;
+
 public class Verify {
 
-	public static ObjectSubject that(Object object)
+	public static ObjectVerb<Object> that(Object object)
 	{
-		return new ObjectSubject(object);
+		return new ObjectSubject<>(object);
 	}
 
-	public static BooleanSubject that(Boolean bool)
+	public static BooleanVerb that(Boolean bool)
 	{
 		return new BooleanSubject(bool);
 	}
 
-	public static IntegerSubject that(Integer integer)
+	public static IntegerVerb that(Integer integer)
 	{
 		return new IntegerSubject(integer);
 	}
 
-	public static TypeSubject<Type> that(Type type)
+	public static TypeVerb<Type> that(Type type)
 	{
 		return new TypeSubject<>(type);
 	}
 
-	public static ClassSubject that(Class<?> clazz)
+	public static ClassVerb that(Class<?> clazz)
 	{
 		return new ClassSubject(clazz);
 	}
 
-	public static ExecutableSubject<Executable> that(Executable executable)
+	public static RunnableVerb<CheckedRunnable> that(CheckedRunnable executable)
 	{
-		return new ExecutableSubject<>(executable);
+		return new RunnableSubject<>(executable);
 	}
 
-	public static ProducerSubject that(Producer producer)
+	public static <T> SupplierVerb<T> that(CheckedSupplier<T> producer)
 	{
-		return new ProducerSubject(producer);
+		return new SupplierSubject<>(producer);
 	}
 
-	public static ThrowableSubject that(Throwable throwable)
+	public static ThrowableVerb that(Throwable throwable)
 	{
 		return new ThrowableSubject(throwable);
 	}
 
-	public static AccessibleSubject that(AccessibleObject accessible)
+	public static AccessibleVerb that(AccessibleObject accessible)
 	{
 		return new AccessibleSubject(accessible);
 	}
 
-	public static OptionalSubject that(Optional<?> optional)
+	public static <T> OptionalVerb<T> that(Optional<T> optional)
 	{
-		return new OptionalSubject(optional);
+		return new OptionalSubject<>(optional);
 	}
 
 	private Verify() { }

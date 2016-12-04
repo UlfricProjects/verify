@@ -1,9 +1,7 @@
-package com.ulfric.verify;
+package com.ulfric.verify.exception;
 
 @SuppressWarnings("serial")
 public final class VerificationException extends RuntimeException {
-
-	public VerificationException() { }
 
 	public VerificationException(String message)
 	{

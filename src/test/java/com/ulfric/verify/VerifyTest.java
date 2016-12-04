@@ -1,5 +1,6 @@
 package com.ulfric.verify;
 
+import org.junit.Assert;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.platform.runner.JUnitPlatform;
@@ -7,30 +8,20 @@ import org.junit.runner.RunWith;
 
 @DisplayName("Verify")
 @RunWith(JUnitPlatform.class)
-class VerifyTest extends VerificationTest {
+class VerifyTest {
 
 	@Test
 	void testVerifyStaticFactoryOnObjectReturnsNonNull()
 	{
-		this.nonNull(Verify.that(new Object()));
+		Object sample = new Object();
+		Assert.assertNotNull(Verify.that(sample));
 	}
 
 	@Test
 	void testVerifyStaticFactoryOnNullReturnsNonNull()
 	{
-		this.nonNull(Verify.that(new Object()));
-	}
-
-	@Test
-	void testVerifyStaticFactoryOnObjectReturnsUnique()
-	{
-		this.notSame(() -> Verify.that(new Object()));
-	}
-
-	@Test
-	void testVerifyStaticFactoryOnNullReturnsUnique()
-	{
-		this.notSame(() -> Verify.that(VerificationTest.NULL));
+		Object sample = null;
+		Assert.assertNotNull(Verify.that(sample));
 	}
 
 }

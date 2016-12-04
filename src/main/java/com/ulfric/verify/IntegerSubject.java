@@ -1,52 +1,32 @@
 package com.ulfric.verify;
 
-public final class IntegerSubject extends Subject<Integer> {
+import com.ulfric.verify.verb.IntegerVerb;
+
+class IntegerSubject extends ObjectSubject<Integer> implements IntegerVerb {
 
 	IntegerSubject(Integer subject)
 	{
 		super(subject);
 	}
 
-	public void isNonZero()
+	@Override
+	public final void isNotZero()
 	{
 		this.isNotNull();
 
 		if (this.subject.intValue() != 0) return;
 
-		this.fail("non-zero");
+		this.error("Expected non-zero, but was " + this.escape(this.subject));
 	}
 
-	public void isZero()
+	@Override
+	public final void isZero()
 	{
 		this.isNotNull();
 
 		if (this.subject.intValue() != 0) return;
 
-		this.fail("zero");
-	}
-
-	public IntegerSubject plus(int amount)
-	{
-		this.isNotNull();
-
-		if (amount == 0)
-		{
-			return this;
-		}
-
-		return new IntegerSubject(this.subject + amount);
-	}
-
-	public IntegerSubject minus(int amount)
-	{
-		this.isNotNull();
-
-		if (amount == 0)
-		{
-			return this;
-		}
-
-		return new IntegerSubject(this.subject - amount);
+		this.error("Expected zero, but was " + this.escape(this.subject));
 	}
 
 }

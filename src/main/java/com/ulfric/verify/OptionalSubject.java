@@ -2,29 +2,33 @@ package com.ulfric.verify;
 
 import java.util.Optional;
 
-public final class OptionalSubject extends Subject<Optional<?>> {
+import com.ulfric.verify.verb.OptionalVerb;
 
-	OptionalSubject(Optional<?> subject)
+class OptionalSubject<T> extends ObjectSubject<Optional<T>> implements OptionalVerb<T> {
+
+	OptionalSubject(Optional<T> subject)
 	{
 		super(subject);
 	}
 
+	@Override
 	public final void isPresent()
 	{
 		this.isNotNull();
 
 		if (this.subject.isPresent()) return;
 
-		this.fail("present");
+		this.error("expected subject to be present, was not present");
 	}
 
-	public final void isEmpty()
+	@Override
+	public final void isNotPresent()
 	{
 		this.isNotNull();
 
 		if (!this.subject.isPresent()) return;
 
-		this.fail("empty");
+		this.error("expected subject to not be present, was present");
 	}
 
 }
