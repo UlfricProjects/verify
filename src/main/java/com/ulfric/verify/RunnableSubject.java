@@ -44,4 +44,17 @@ class RunnableSubject<T extends CheckedRunnable> extends ObjectSubject<T> implem
 		throw new VerificationException("No exception was thrown");
 	}
 
+	@Override
+	public final void runsWithoutExceptions()
+	{
+		try
+		{
+			this.subject.run();
+		}
+		catch (Throwable thrown)
+		{
+			throw new VerificationException("An exception was thrown", thrown);
+		}
+	}
+
 }
