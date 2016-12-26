@@ -8,6 +8,6 @@ public interface CheckedSupplier<T> extends CheckedRunnable {
 		this.get();
 	}
 
-	T get() throws Exception;
+	T get() throws Throwable;
 
 }
