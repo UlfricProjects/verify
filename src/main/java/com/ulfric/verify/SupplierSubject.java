@@ -19,9 +19,9 @@ class SupplierSubject<T> extends RunnableSubject<CheckedSupplier<T>> implements 
 		{
 			if (this.subject.get() == this.subject.get()) return;
 		}
-		catch (Exception exception)
+		catch (Throwable e)
 		{
-			throw new RuntimeException(exception);
+			throw new RuntimeException(e);
 		}
 
 		this.error("expected non-unique values to be supplied, was unique");
@@ -36,9 +36,9 @@ class SupplierSubject<T> extends RunnableSubject<CheckedSupplier<T>> implements 
 		{
 			if (this.subject.get() != this.subject.get()) return;
 		}
-		catch (Exception exception)
+		catch (Throwable e)
 		{
-			throw new RuntimeException(exception);
+			throw new RuntimeException(e);
 		}
 
 		this.error("expected unique values to be supplied, was non-unique");
