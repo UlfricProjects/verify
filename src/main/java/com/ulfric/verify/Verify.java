@@ -1,15 +1,15 @@
 package com.ulfric.verify;
 
-import java.lang.reflect.AccessibleObject;
+import java.lang.reflect.Member;
 import java.lang.reflect.Type;
 import java.util.Optional;
 
 import com.ulfric.verify.function.CheckedRunnable;
 import com.ulfric.verify.function.CheckedSupplier;
-import com.ulfric.verify.verb.AccessibleVerb;
 import com.ulfric.verify.verb.BooleanVerb;
 import com.ulfric.verify.verb.ClassVerb;
 import com.ulfric.verify.verb.IntegerVerb;
+import com.ulfric.verify.verb.MemberVerb;
 import com.ulfric.verify.verb.ObjectVerb;
 import com.ulfric.verify.verb.OptionalVerb;
 import com.ulfric.verify.verb.RunnableVerb;
@@ -59,14 +59,14 @@ public class Verify {
 		return new ThrowableSubject(throwable);
 	}
 
-	public static AccessibleVerb that(AccessibleObject accessible)
-	{
-		return new AccessibleSubject(accessible);
-	}
-
 	public static <T> OptionalVerb<T> that(Optional<T> optional)
 	{
 		return new OptionalSubject<>(optional);
+	}
+
+	public static MemberVerb<Member> that(Member member)
+	{
+		return new MemberSubject<>(member);
 	}
 
 	private Verify() { }
