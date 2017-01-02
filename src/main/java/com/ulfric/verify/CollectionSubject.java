@@ -12,7 +12,7 @@ class CollectionSubject<T> extends ObjectSubject<Collection<T>> implements Colle
 	}
 
 	@Override
-	public void contains(T value)
+	public final void contains(T value)
 	{
 		if (this.subject.contains(value))
 		{
@@ -23,7 +23,7 @@ class CollectionSubject<T> extends ObjectSubject<Collection<T>> implements Colle
 	}
 
 	@Override
-	public void doesNotContain(T value)
+	public final void doesNotContain(T value)
 	{
 		if (!this.subject.contains(value))
 		{
@@ -31,6 +31,28 @@ class CollectionSubject<T> extends ObjectSubject<Collection<T>> implements Colle
 		}
 
 		this.error("Expected " + this.subject + " to not contain " + value + ", but did");
+	}
+
+	@Override
+	public final void isEmpty()
+	{
+		if (this.subject.isEmpty())
+		{
+			return;
+		}
+
+		this.error("Expected " + this.subject + " to be empty");
+	}
+
+	@Override
+	public final void isNotEmpty()
+	{
+		if (!this.subject.isEmpty())
+		{
+			return;
+		}
+
+		this.error("Expected " + this.subject + " to not be empty");
 	}
 
 }

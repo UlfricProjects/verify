@@ -8,4 +8,8 @@ public interface CollectionVerb<T> extends ObjectVerb<Collection<T>> {
 
 	void doesNotContain(T value);
 
+	void isEmpty();
+
+	void isNotEmpty();
+
 }
