@@ -2,12 +2,14 @@ package com.ulfric.verify;
 
 import java.lang.reflect.Member;
 import java.lang.reflect.Type;
+import java.util.Collection;
 import java.util.Optional;
 
 import com.ulfric.verify.function.CheckedRunnable;
 import com.ulfric.verify.function.CheckedSupplier;
 import com.ulfric.verify.verb.BooleanVerb;
 import com.ulfric.verify.verb.ClassVerb;
+import com.ulfric.verify.verb.CollectionVerb;
 import com.ulfric.verify.verb.IntegerVerb;
 import com.ulfric.verify.verb.MemberVerb;
 import com.ulfric.verify.verb.ObjectVerb;
@@ -67,6 +69,11 @@ public class Verify {
 	public static MemberVerb<Member> that(Member member)
 	{
 		return new MemberSubject<>(member);
+	}
+
+	public static <T> CollectionVerb<T> that(Collection<T> collection)
+	{
+		return new CollectionSubject<>(collection);
 	}
 
 	private Verify() { }
