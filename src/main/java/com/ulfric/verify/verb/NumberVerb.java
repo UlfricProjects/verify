@@ -1,6 +1,6 @@
 package com.ulfric.verify.verb;
 
-public interface NumberVerb<N extends Number> extends ObjectVerb<N> {
+public interface NumberVerb extends ObjectVerb {
 
 	void isZero();
 

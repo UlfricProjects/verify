@@ -4,15 +4,15 @@ import java.util.Collection;
 
 import com.ulfric.verify.verb.CollectionVerb;
 
-class CollectionSubject<T> extends ObjectSubject<Collection<T>> implements CollectionVerb<T> {
+class CollectionSubject extends ObjectSubject<Collection<?>> implements CollectionVerb {
 
-	CollectionSubject(Collection<T> subject)
+	CollectionSubject(Collection<?> subject)
 	{
 		super(subject);
 	}
 
 	@Override
-	public final void contains(T value)
+	public final void contains(Object value)
 	{
 		if (this.subject.contains(value))
 		{
@@ -23,7 +23,7 @@ class CollectionSubject<T> extends ObjectSubject<Collection<T>> implements Colle
 	}
 
 	@Override
-	public final void doesNotContain(T value)
+	public final void doesNotContain(Object value)
 	{
 		if (!this.subject.contains(value))
 		{

@@ -8,7 +8,7 @@ import java.lang.reflect.WildcardType;
 
 import com.ulfric.verify.verb.TypeVerb;
 
-class TypeSubject<T extends Type> extends ObjectSubject<T> implements TypeVerb<T> {
+class TypeSubject<T extends Type> extends ObjectSubject<T> implements TypeVerb {
 
 	TypeSubject(T subject)
 	{
@@ -20,7 +20,7 @@ class TypeSubject<T extends Type> extends ObjectSubject<T> implements TypeVerb<T
 	{
 		if (this.subject instanceof Class) return;
 
-		this.error("expected a Class, got a " + this.escape(this.subject.getClass()));
+		this.error("expected a Class, got a " + this.subject.getClass());
 	}
 
 	@Override
@@ -28,7 +28,7 @@ class TypeSubject<T extends Type> extends ObjectSubject<T> implements TypeVerb<T
 	{
 		if (!(this.subject instanceof Class)) return;
 
-		this.error("expected anything but a Class, got a " + this.escape(this.subject.getClass()));
+		this.error("expected anything but a Class, got a " + this.subject.getClass());
 	}
 
 	@Override
@@ -36,7 +36,7 @@ class TypeSubject<T extends Type> extends ObjectSubject<T> implements TypeVerb<T
 	{
 		if (this.subject instanceof ParameterizedType) return;
 
-		this.error("expected a ParameterizedType, got a " + this.escape(this.subject.getClass()));
+		this.error("expected a ParameterizedType, got a " + this.subject.getClass());
 	}
 
 	@Override
@@ -44,7 +44,7 @@ class TypeSubject<T extends Type> extends ObjectSubject<T> implements TypeVerb<T
 	{
 		if (!(this.subject instanceof ParameterizedType)) return;
 
-		this.error("expected anything but a ParameterizedType, got a " + this.escape(this.subject.getClass()));
+		this.error("expected anything but a ParameterizedType, got a " + this.subject.getClass());
 	}
 
 	@Override
@@ -52,7 +52,7 @@ class TypeSubject<T extends Type> extends ObjectSubject<T> implements TypeVerb<T
 	{
 		if (this.subject instanceof GenericArrayType) return;
 
-		this.error("expected a GenericArrayType, got a " + this.escape(this.subject.getClass()));
+		this.error("expected a GenericArrayType, got a " + this.subject.getClass());
 	}
 
 	@Override
@@ -60,7 +60,7 @@ class TypeSubject<T extends Type> extends ObjectSubject<T> implements TypeVerb<T
 	{
 		if (!(this.subject instanceof GenericArrayType)) return;
 
-		this.error("expected anything but a GenericArrayType, got a " + this.escape(this.subject.getClass()));
+		this.error("expected anything but a GenericArrayType, got a " + this.subject.getClass());
 	}
 
 	@Override
@@ -68,7 +68,7 @@ class TypeSubject<T extends Type> extends ObjectSubject<T> implements TypeVerb<T
 	{
 		if (this.subject instanceof WildcardType) return;
 
-		this.error("expected a WildcardType, got a " + this.escape(this.subject.getClass()));
+		this.error("expected a WildcardType, got a " + this.subject.getClass());
 	}
 
 	@Override
@@ -76,7 +76,7 @@ class TypeSubject<T extends Type> extends ObjectSubject<T> implements TypeVerb<T
 	{
 		if (!(this.subject instanceof WildcardType)) return;
 
-		this.error("expected anything but a WildcardType, got a " + this.escape(this.subject.getClass()));
+		this.error("expected anything but a WildcardType, got a " + this.subject.getClass());
 	}
 
 	@Override
@@ -84,7 +84,7 @@ class TypeSubject<T extends Type> extends ObjectSubject<T> implements TypeVerb<T
 	{
 		if (this.subject instanceof TypeVariable) return;
 
-		this.error("expected a TypeVariable, got a " + this.escape(this.subject.getClass()));
+		this.error("expected a TypeVariable, got a " + this.subject.getClass());
 	}
 
 	@Override
@@ -92,7 +92,7 @@ class TypeSubject<T extends Type> extends ObjectSubject<T> implements TypeVerb<T
 	{
 		if (!(this.subject instanceof TypeVariable)) return;
 
-		this.error("expected anything but a TypeVariable, got a " + this.escape(this.subject.getClass()));
+		this.error("expected anything but a TypeVariable, got a " + this.subject.getClass());
 	}
 
 }

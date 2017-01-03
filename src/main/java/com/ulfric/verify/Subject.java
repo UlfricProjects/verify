@@ -1,9 +1,8 @@
 package com.ulfric.verify;
 
 import com.ulfric.verify.exception.Verification;
-import com.ulfric.verify.verb.Verb;
 
-public class Subject<T> extends Verification implements Verb<T> {
+public class Subject<T> extends Verification {
 
 	protected Subject(T subject)
 	{
@@ -12,7 +11,6 @@ public class Subject<T> extends Verification implements Verb<T> {
 
 	final T subject;
 
-	@Override
 	public final T getSubject()
 	{
 		return this.subject;

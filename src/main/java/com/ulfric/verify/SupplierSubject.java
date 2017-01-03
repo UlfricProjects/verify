@@ -3,9 +3,9 @@ package com.ulfric.verify;
 import com.ulfric.verify.function.CheckedSupplier;
 import com.ulfric.verify.verb.SupplierVerb;
 
-class SupplierSubject<T> extends RunnableSubject<CheckedSupplier<T>> implements SupplierVerb<T> {
+class SupplierSubject extends RunnableSubject<CheckedSupplier<?>> implements SupplierVerb {
 
-	SupplierSubject(CheckedSupplier<T> producer)
+	SupplierSubject(CheckedSupplier<?> producer)
 	{
 		super(producer);
 	}

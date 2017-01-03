@@ -16,7 +16,7 @@ class ClassSubject extends TypeSubject<Class<?>> implements ClassVerb {
 
 		if (clazz.isAssignableFrom(this.subject)) return;
 
-		this.error("expected something assignable from " + this.escape(clazz) + ", got " + this.escape(this.subject));
+		this.error("expected something assignable from " + clazz + ", got " + this.subject);
 	}
 
 }

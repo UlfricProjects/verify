@@ -1,8 +1,6 @@
 package com.ulfric.verify.verb;
 
-import java.lang.reflect.Type;
-
-public interface TypeVerb<T extends Type> extends ObjectVerb<T> {
+public interface TypeVerb extends ObjectVerb {
 
 	void isClass();
 

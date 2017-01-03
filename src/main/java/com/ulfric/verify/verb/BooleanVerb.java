@@ -1,6 +1,6 @@
 package com.ulfric.verify.verb;
 
-public interface BooleanVerb extends ObjectVerb<Boolean> {
+public interface BooleanVerb extends ObjectVerb {
 
 	void isTrue();
 

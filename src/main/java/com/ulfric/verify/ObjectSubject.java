@@ -6,7 +6,7 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 
 import com.ulfric.verify.verb.ObjectVerb;
 
-class ObjectSubject<T> extends Subject<T> implements ObjectVerb<T> {
+class ObjectSubject<T> extends Subject<T> implements ObjectVerb {
 
 	ObjectSubject(T subject)
 	{
@@ -21,7 +21,7 @@ class ObjectSubject<T> extends Subject<T> implements ObjectVerb<T> {
 			return;
 		}
 
-		this.error("expected not null, was " + this.escape(this.subject));
+		this.error("expected not null, was " + this.subject);
 	}
 
 	@Override
@@ -43,8 +43,7 @@ class ObjectSubject<T> extends Subject<T> implements ObjectVerb<T> {
 			return;
 		}
 
-		this.error("expected the same as " + this.escape(other) +
-				", was " + this.escape(this.subject));
+		this.error("expected the same as " + other + ", was " + this.subject);
 	}
 
 	@Override
@@ -55,8 +54,7 @@ class ObjectSubject<T> extends Subject<T> implements ObjectVerb<T> {
 			return;
 		}
 
-		this.error("expected anything except for " + this.escape(other) +
-				", was the same");
+		this.error("expected anything except for " + ", was the same");
 	}
 
 	@Override
@@ -67,8 +65,7 @@ class ObjectSubject<T> extends Subject<T> implements ObjectVerb<T> {
 			return;
 		}
 
-		this.error("expected equal to " + this.escape(other) +
-				", was " + this.escape(this.subject));
+		this.error("expected equal to " + other + ", was " + this.subject);
 	}
 
 	@Override
@@ -79,8 +76,7 @@ class ObjectSubject<T> extends Subject<T> implements ObjectVerb<T> {
 			return;
 		}
 
-		this.error("expected not equal to " + this.escape(other) +
-				", was " + this.escape(this.subject));
+		this.error("expected not equal to " + other + ", was " + this.subject);
 	}
 
 	@Override
@@ -93,8 +89,7 @@ class ObjectSubject<T> extends Subject<T> implements ObjectVerb<T> {
 			return;
 		}
 
-		this.error("expected an instance of " + this.escape(clazz) +
-				", was " + this.escape(this.subject.getClass()));
+		this.error("expected an instance of " + clazz + ", was " + this.subject.getClass());
 	}
 
 	@Override
@@ -107,8 +102,7 @@ class ObjectSubject<T> extends Subject<T> implements ObjectVerb<T> {
 			return;
 		}
 
-		this.error("expected not an instance of " + this.escape(clazz) +
-				", was an instance of the same type");
+		this.error("expected not an instance of " + clazz + ", was an instance of the same type");
 	}
 
 	@Override
@@ -121,8 +115,7 @@ class ObjectSubject<T> extends Subject<T> implements ObjectVerb<T> {
 			return;
 		}
 
-		this.error("expected an instance of exactly " + this.escape(clazz) +
-				", was an instance of " + this.escape(this.subject.getClass()));
+		this.error("expected an instance of exactly " + clazz + ", was an instance of " + this.subject.getClass());
 	}
 
 	@Override
@@ -133,8 +126,7 @@ class ObjectSubject<T> extends Subject<T> implements ObjectVerb<T> {
 			return;
 		}
 
-		this.error("expected not an instance of exactly " + this.escape(clazz) +
-				", was an instance of the same type");
+		this.error("expected not an instance of exactly " + clazz + ", was an instance of the same type");
 	}
 
 }

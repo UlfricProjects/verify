@@ -1,6 +1,6 @@
 package com.ulfric.verify.verb;
 
-public interface ObjectVerb<T> extends Verb<T> {
+public interface ObjectVerb {
 
 	void isNotNull();
 

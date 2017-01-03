@@ -1,8 +1,6 @@
 package com.ulfric.verify.verb;
 
-import java.util.Optional;
-
-public interface OptionalVerb<T> extends ObjectVerb<Optional<T>> {
+public interface OptionalVerb {
 
 	void isPresent();
 

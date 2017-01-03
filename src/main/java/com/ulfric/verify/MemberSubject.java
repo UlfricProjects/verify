@@ -5,9 +5,9 @@ import java.lang.reflect.Modifier;
 
 import com.ulfric.verify.verb.MemberVerb;
 
-class MemberSubject<T extends Member> extends ObjectSubject<T> implements MemberVerb<T> {
+class MemberSubject extends ObjectSubject<Member> implements MemberVerb {
 
-	MemberSubject(T subject)
+	MemberSubject(Member subject)
 	{
 		super(subject);
 	}

@@ -10,8 +10,8 @@ import com.ulfric.verify.function.CheckedSupplier;
 import com.ulfric.verify.verb.BooleanVerb;
 import com.ulfric.verify.verb.ClassVerb;
 import com.ulfric.verify.verb.CollectionVerb;
-import com.ulfric.verify.verb.IntegerVerb;
 import com.ulfric.verify.verb.MemberVerb;
+import com.ulfric.verify.verb.NumberVerb;
 import com.ulfric.verify.verb.ObjectVerb;
 import com.ulfric.verify.verb.OptionalVerb;
 import com.ulfric.verify.verb.RunnableVerb;
@@ -21,7 +21,7 @@ import com.ulfric.verify.verb.TypeVerb;
 
 public class Verify {
 
-	public static ObjectVerb<Object> that(Object object)
+	public static ObjectVerb that(Object object)
 	{
 		return new ObjectSubject<>(object);
 	}
@@ -31,12 +31,12 @@ public class Verify {
 		return new BooleanSubject(bool);
 	}
 
-	public static IntegerVerb that(Integer integer)
+	public static NumberVerb that(Number integer)
 	{
-		return new IntegerSubject(integer);
+		return new NumberSubject(integer);
 	}
 
-	public static TypeVerb<Type> that(Type type)
+	public static TypeVerb that(Type type)
 	{
 		return new TypeSubject<>(type);
 	}
@@ -46,14 +46,14 @@ public class Verify {
 		return new ClassSubject(clazz);
 	}
 
-	public static RunnableVerb<CheckedRunnable> that(CheckedRunnable executable)
+	public static RunnableVerb that(CheckedRunnable executable)
 	{
 		return new RunnableSubject<>(executable);
 	}
 
-	public static <T> SupplierVerb<T> that(CheckedSupplier<T> producer)
+	public static SupplierVerb that(CheckedSupplier<?> producer)
 	{
-		return new SupplierSubject<>(producer);
+		return new SupplierSubject(producer);
 	}
 
 	public static ThrowableVerb that(Throwable throwable)
@@ -61,19 +61,19 @@ public class Verify {
 		return new ThrowableSubject(throwable);
 	}
 
-	public static <T> OptionalVerb<T> that(Optional<T> optional)
+	public static OptionalVerb that(Optional<?> optional)
 	{
-		return new OptionalSubject<>(optional);
+		return new OptionalSubject(optional);
 	}
 
-	public static MemberVerb<Member> that(Member member)
+	public static MemberVerb that(Member member)
 	{
-		return new MemberSubject<>(member);
+		return new MemberSubject(member);
 	}
 
-	public static <T> CollectionVerb<T> that(Collection<T> collection)
+	public static CollectionVerb that(Collection<?> collection)
 	{
-		return new CollectionSubject<>(collection);
+		return new CollectionSubject(collection);
 	}
 
 	private Verify() { }

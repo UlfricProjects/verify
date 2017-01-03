@@ -4,9 +4,9 @@ import java.util.Optional;
 
 import com.ulfric.verify.verb.OptionalVerb;
 
-class OptionalSubject<T> extends ObjectSubject<Optional<T>> implements OptionalVerb<T> {
+class OptionalSubject extends ObjectSubject<Optional<?>> implements OptionalVerb {
 
-	OptionalSubject(Optional<T> subject)
+	OptionalSubject(Optional<?> subject)
 	{
 		super(subject);
 	}

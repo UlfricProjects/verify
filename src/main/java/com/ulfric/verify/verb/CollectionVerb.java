@@ -1,12 +1,10 @@
 package com.ulfric.verify.verb;
 
-import java.util.Collection;
+public interface CollectionVerb extends ObjectVerb {
 
-public interface CollectionVerb<T> extends ObjectVerb<Collection<T>> {
+	void contains(Object value);
 
-	void contains(T value);
-
-	void doesNotContain(T value);
+	void doesNotContain(Object value);
 
 	void isEmpty();
 

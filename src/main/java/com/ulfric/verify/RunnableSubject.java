@@ -5,7 +5,7 @@ import com.ulfric.verify.exception.VerificationException;
 import com.ulfric.verify.function.CheckedRunnable;
 import com.ulfric.verify.verb.RunnableVerb;
 
-class RunnableSubject<T extends CheckedRunnable> extends ObjectSubject<T> implements RunnableVerb<T> {
+class RunnableSubject<T extends CheckedRunnable> extends ObjectSubject<T> implements RunnableVerb {
 
 	RunnableSubject(T subject)
 	{
