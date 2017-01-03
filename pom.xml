@@ -67,4 +67,11 @@
 		</dependency>
 	</dependencies>
 
+	<distributionManagement>
+		<repository>
+			<id>nexus</id>
+			<url>http://repo.dev.ulfric.com:8081/repository/maven-releases/</url>
+		</repository>
+	</distributionManagement>
+
 </project>
