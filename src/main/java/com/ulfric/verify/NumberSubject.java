@@ -12,9 +12,10 @@ class NumberSubject extends ObjectSubject<Number> implements NumberVerb {
 	@Override
 	public final void isNotZero()
 	{
-		this.isNotNull();
-
-		if (this.subject.intValue() != 0) return;
+		if (this.subject.intValue() != 0)
+		{
+			return;
+		}
 
 		this.error("Expected non-zero, but was " + this.subject);
 	}
@@ -22,9 +23,10 @@ class NumberSubject extends ObjectSubject<Number> implements NumberVerb {
 	@Override
 	public final void isZero()
 	{
-		this.isNotNull();
-
-		if (this.subject.intValue() != 0) return;
+		if (this.subject.intValue() != 0)
+		{
+			return;
+		}
 
 		this.error("Expected zero, but was " + this.subject);
 	}

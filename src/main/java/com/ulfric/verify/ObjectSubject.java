@@ -1,7 +1,5 @@
 package com.ulfric.verify;
 
-import java.util.Objects;
-
 import org.apache.commons.lang3.builder.EqualsBuilder;
 
 import com.ulfric.verify.verb.ObjectVerb;
@@ -82,8 +80,6 @@ class ObjectSubject<T> extends Subject<T> implements ObjectVerb {
 	@Override
 	public final void isInstanceOf(Class<?> clazz)
 	{
-		Objects.requireNonNull(clazz);
-
 		if (clazz.isInstance(this.subject))
 		{
 			return;
@@ -95,8 +91,6 @@ class ObjectSubject<T> extends Subject<T> implements ObjectVerb {
 	@Override
 	public final void isNotInstanceOf(Class<?> clazz)
 	{
-		Objects.requireNonNull(clazz);
-
 		if (!clazz.isInstance(this.subject))
 		{
 			return;
@@ -108,8 +102,6 @@ class ObjectSubject<T> extends Subject<T> implements ObjectVerb {
 	@Override
 	public final void isExactType(Class<?> clazz)
 	{
-		this.isNotNull();
-
 		if (clazz == this.subject.getClass())
 		{
 			return;

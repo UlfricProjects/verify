@@ -14,9 +14,10 @@ class OptionalSubject extends ObjectSubject<Optional<?>> implements OptionalVerb
 	@Override
 	public final void isPresent()
 	{
-		this.isNotNull();
-
-		if (this.subject.isPresent()) return;
+		if (this.subject.isPresent())
+		{
+			return;
+		}
 
 		this.error("expected subject to be present, was not present");
 	}
@@ -24,9 +25,10 @@ class OptionalSubject extends ObjectSubject<Optional<?>> implements OptionalVerb
 	@Override
 	public final void isNotPresent()
 	{
-		this.isNotNull();
-
-		if (!this.subject.isPresent()) return;
+		if (!this.subject.isPresent())
+		{
+			return;
+		}
 
 		this.error("expected subject to not be present, was present");
 	}

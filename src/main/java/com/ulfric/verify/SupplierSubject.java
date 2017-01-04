@@ -13,11 +13,12 @@ class SupplierSubject extends RunnableSubject<CheckedSupplier<?>> implements Sup
 	@Override
 	public final void suppliesNonUniqueValues()
 	{
-		this.isNotNull();
-
 		try
 		{
-			if (this.subject.get() == this.subject.get()) return;
+			if (this.subject.get() == this.subject.get())
+			{
+				return;
+			}
 		}
 		catch (Throwable e)
 		{
@@ -30,11 +31,12 @@ class SupplierSubject extends RunnableSubject<CheckedSupplier<?>> implements Sup
 	@Override
 	public final void suppliesUniqueValues()
 	{
-		this.isNotNull();
-
 		try
 		{
-			if (this.subject.get() != this.subject.get()) return;
+			if (this.subject.get() != this.subject.get())
+			{
+				return;
+			}
 		}
 		catch (Throwable e)
 		{

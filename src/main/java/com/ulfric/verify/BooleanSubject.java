@@ -12,9 +12,10 @@ class BooleanSubject extends ObjectSubject<Boolean> implements BooleanVerb {
 	@Override
 	public final void isTrue()
 	{
-		this.isNotNull();
-
-		if (this.subject) return;
+		if (this.subject)
+		{
+			return;
+		}
 
 		this.error("expected true, was false");
 	}
@@ -22,9 +23,10 @@ class BooleanSubject extends ObjectSubject<Boolean> implements BooleanVerb {
 	@Override
 	public final void isFalse()
 	{
-		this.isNotNull();
-
-		if (!this.subject) return;
+		if (!this.subject)
+		{
+			return;
+		}
 
 		this.error("expected false, was true");
 	}

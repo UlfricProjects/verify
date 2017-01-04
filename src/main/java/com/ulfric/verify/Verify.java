@@ -19,63 +19,68 @@ import com.ulfric.verify.verb.SupplierVerb;
 import com.ulfric.verify.verb.ThrowableVerb;
 import com.ulfric.verify.verb.TypeVerb;
 
-public class Verify {
+public enum Verify {
 
-	public static ObjectVerb that(Object object)
+	;
+
+	public static ObjectVerb that(Object subject)
 	{
-		return new ObjectSubject<>(object);
+		return new ObjectSubject<>(subject);
 	}
 
-	public static BooleanVerb that(Boolean bool)
+	public static BooleanVerb that(Boolean subject)
 	{
-		return new BooleanSubject(bool);
+		return new BooleanSubject(subject);
 	}
 
-	public static NumberVerb that(Number integer)
+	public static NumberVerb that(Number subject)
 	{
-		return new NumberSubject(integer);
+		return new NumberSubject(subject);
 	}
 
-	public static TypeVerb that(Type type)
+	public static TypeVerb that(Type subject)
 	{
-		return new TypeSubject<>(type);
+		return new TypeSubject<>(subject);
 	}
 
-	public static ClassVerb that(Class<?> clazz)
+	public static ClassVerb that(Class<?> subject)
 	{
-		return new ClassSubject(clazz);
+		return new ClassSubject(subject);
 	}
 
-	public static RunnableVerb that(CheckedRunnable executable)
+	public static RunnableVerb that(CheckedRunnable subject)
 	{
-		return new RunnableSubject<>(executable);
+		return new RunnableSubject<>(subject);
 	}
 
-	public static SupplierVerb that(CheckedSupplier<?> producer)
+	public static SupplierVerb that(CheckedSupplier<?> subject)
 	{
-		return new SupplierSubject(producer);
+		return new SupplierSubject(subject);
 	}
 
-	public static ThrowableVerb that(Throwable throwable)
+	public static ThrowableVerb that(Throwable subject)
 	{
-		return new ThrowableSubject(throwable);
+		return new ThrowableSubject(subject);
 	}
 
-	public static OptionalVerb that(Optional<?> optional)
+	public static OptionalVerb that(Optional<?> subject)
 	{
-		return new OptionalSubject(optional);
+		return new OptionalSubject(subject);
 	}
 
-	public static MemberVerb that(Member member)
+	public static MemberVerb that(Member subject)
 	{
-		return new MemberSubject(member);
+		return new MemberSubject(subject);
 	}
 
-	public static CollectionVerb that(Collection<?> collection)
+	public static CollectionVerb that(Collection<?> subject)
 	{
-		return new CollectionSubject(collection);
+		return new CollectionSubject(subject);
 	}
 
-	private Verify() { }
+	public static CollectionVerb that(Object[] subject)
+	{
+		return new ArraySubject(subject);
+	}
 
 }
