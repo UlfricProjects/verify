@@ -21,6 +21,17 @@ class ClassSubject extends TypeSubject<Class<?>> implements ClassVerb {
 	}
 
 	@Override
+	public final void isNotAssignableTo(Class<?> clazz)
+	{
+		if (!clazz.isAssignableFrom(this.subject))
+		{
+			return;
+		}
+
+		this.error("expected something not assignable from " + clazz + ", got " + this.subject);
+	}
+
+	@Override
 	public final void isEnum()
 	{
 		if (this.subject.isEnum())
