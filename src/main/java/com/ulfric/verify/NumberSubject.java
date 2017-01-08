@@ -23,7 +23,7 @@ class NumberSubject extends ObjectSubject<Number> implements NumberVerb {
 	@Override
 	public final void isZero()
 	{
-		if (this.subject.intValue() != 0)
+		if (this.subject.intValue() == 0)
 		{
 			return;
 		}
