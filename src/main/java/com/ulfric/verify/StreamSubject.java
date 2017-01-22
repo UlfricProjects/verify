@@ -62,4 +62,18 @@ class StreamSubject extends ObjectSubject<Stream<?>> implements StreamVerb {
 		this.error("Expected " + subject + " to not be empty");
 	}
 
+	@Override
+	public final void isClosed()
+	{
+		try
+		{
+			List<?> subject = this.subject.collect(Collectors.toList());
+			this.error("Expected " + subject + " to be closed");
+		}
+		catch (IllegalStateException exception)
+		{
+			
+		}
+	}
+
 }
