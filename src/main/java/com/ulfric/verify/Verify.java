@@ -4,9 +4,11 @@ import java.lang.reflect.Member;
 import java.lang.reflect.Type;
 import java.util.Collection;
 import java.util.Optional;
+import java.util.stream.Stream;
 
 import com.ulfric.verify.function.CheckedRunnable;
 import com.ulfric.verify.function.CheckedSupplier;
+import com.ulfric.verify.function.StreamVerb;
 import com.ulfric.verify.verb.BooleanVerb;
 import com.ulfric.verify.verb.ClassVerb;
 import com.ulfric.verify.verb.CollectionVerb;
@@ -81,6 +83,11 @@ public enum Verify {
 	public static CollectionVerb that(Object[] subject)
 	{
 		return new ArraySubject(subject);
+	}
+
+	public static StreamVerb that(Stream<?> subject)
+	{
+		return new StreamSubject(subject);
 	}
 
 }
