@@ -5,7 +5,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import com.ulfric.verify.function.StreamVerb;
+import com.ulfric.verify.verb.StreamVerb;
 
 class StreamSubject extends ObjectSubject<Stream<?>> implements StreamVerb {
 

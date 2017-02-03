@@ -8,7 +8,6 @@ import java.util.stream.Stream;
 
 import com.ulfric.verify.function.CheckedRunnable;
 import com.ulfric.verify.function.CheckedSupplier;
-import com.ulfric.verify.function.StreamVerb;
 import com.ulfric.verify.verb.BooleanVerb;
 import com.ulfric.verify.verb.ClassVerb;
 import com.ulfric.verify.verb.CollectionVerb;
@@ -17,6 +16,7 @@ import com.ulfric.verify.verb.NumberVerb;
 import com.ulfric.verify.verb.ObjectVerb;
 import com.ulfric.verify.verb.OptionalVerb;
 import com.ulfric.verify.verb.RunnableVerb;
+import com.ulfric.verify.verb.StreamVerb;
 import com.ulfric.verify.verb.SupplierVerb;
 import com.ulfric.verify.verb.ThrowableVerb;
 import com.ulfric.verify.verb.TypeVerb;
