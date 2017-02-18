@@ -1,6 +1,6 @@
 package com.ulfric.verify;
 
-import org.apache.commons.lang3.builder.EqualsBuilder;
+import java.util.Objects;
 
 import com.ulfric.verify.verb.ObjectVerb;
 
@@ -58,7 +58,7 @@ class ObjectSubject<T> extends Subject<T> implements ObjectVerb {
 	@Override
 	public final void isEqualTo(Object other)
 	{
-		if (EqualsBuilder.reflectionEquals(this.subject, other))
+		if (Objects.deepEquals(this.subject, other))
 		{
 			return;
 		}
@@ -69,7 +69,7 @@ class ObjectSubject<T> extends Subject<T> implements ObjectVerb {
 	@Override
 	public final void isNotEqualTo(Object other)
 	{
-		if (!EqualsBuilder.reflectionEquals(this.subject, other))
+		if (!Objects.deepEquals(this.subject, other))
 		{
 			return;
 		}
