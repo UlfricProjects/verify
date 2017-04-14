@@ -1,5 +1,7 @@
 package com.ulfric.verify;
 
+import org.junit.jupiter.api.Assertions;
+
 import com.ulfric.verify.verb.ClassVerb;
 
 class ClassSubject extends TypeSubject<Class<?>> implements ClassVerb {
@@ -17,7 +19,7 @@ class ClassSubject extends TypeSubject<Class<?>> implements ClassVerb {
 			return;
 		}
 
-		this.error("expected something assignable from " + clazz + ", got " + this.subject);
+		Assertions.fail("expected something assignable from " + clazz + ", got " + this.subject);
 	}
 
 	@Override
@@ -28,7 +30,7 @@ class ClassSubject extends TypeSubject<Class<?>> implements ClassVerb {
 			return;
 		}
 
-		this.error("expected something not assignable from " + clazz + ", got " + this.subject);
+		Assertions.fail("expected something not assignable from " + clazz + ", got " + this.subject);
 	}
 
 	@Override
@@ -39,7 +41,7 @@ class ClassSubject extends TypeSubject<Class<?>> implements ClassVerb {
 			return;
 		}
 
-		this.error("expected an enum, got " + this.subject);
+		Assertions.fail("expected an enum, got " + this.subject);
 	}
 
 	@Override
@@ -50,7 +52,7 @@ class ClassSubject extends TypeSubject<Class<?>> implements ClassVerb {
 			return;
 		}
 
-		this.error("expected not an enum, got " + this.subject);
+		Assertions.fail("expected not an enum, got " + this.subject);
 	}
 
 }

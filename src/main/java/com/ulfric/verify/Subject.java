@@ -1,8 +1,6 @@
 package com.ulfric.verify;
 
-import com.ulfric.verify.exception.Verification;
-
-public class Subject<T> extends Verification {
+public class Subject<T> {
 
 	protected Subject(T subject)
 	{

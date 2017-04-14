@@ -5,6 +5,8 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import org.junit.jupiter.api.Assertions;
+
 import com.ulfric.verify.verb.StreamVerb;
 
 class StreamSubject extends ObjectSubject<Stream<?>> implements StreamVerb {
@@ -23,7 +25,7 @@ class StreamSubject extends ObjectSubject<Stream<?>> implements StreamVerb {
 			return;
 		}
 
-		this.error("Expected " + subject + " to contain " + value + ", but did not");
+		Assertions.fail("Expected " + subject + " to contain " + value + ", but did not");
 	}
 
 	@Override
@@ -35,7 +37,7 @@ class StreamSubject extends ObjectSubject<Stream<?>> implements StreamVerb {
 			return;
 		}
 
-		this.error("Expected " + subject + " to not contain " + value + ", but did");
+		Assertions.fail("Expected " + subject + " to not contain " + value + ", but did");
 	}
 
 	@Override
@@ -47,7 +49,7 @@ class StreamSubject extends ObjectSubject<Stream<?>> implements StreamVerb {
 			return;
 		}
 
-		this.error("Expected " + subject + " to be empty");
+		Assertions.fail("Expected " + subject + " to be empty");
 	}
 
 	@Override
@@ -59,7 +61,7 @@ class StreamSubject extends ObjectSubject<Stream<?>> implements StreamVerb {
 			return;
 		}
 
-		this.error("Expected " + subject + " to not be empty");
+		Assertions.fail("Expected " + subject + " to not be empty");
 	}
 
 	@Override
@@ -68,12 +70,24 @@ class StreamSubject extends ObjectSubject<Stream<?>> implements StreamVerb {
 		try
 		{
 			List<?> subject = this.subject.collect(Collectors.toList());
-			this.error("Expected " + subject + " to be closed");
+			Assertions.fail("Expected " + subject + " to be closed");
 		}
 		catch (IllegalStateException exception)
 		{
 			
 		}
+	}
+
+	@Override
+	public final void isSize(int size)
+	{
+		List<?> subject = this.subject.collect(Collectors.toList());
+		if (subject.size() == size)
+		{
+			return;
+		}
+
+		Assertions.fail("Expected " + subject + " to be size " + size);
 	}
 
 }

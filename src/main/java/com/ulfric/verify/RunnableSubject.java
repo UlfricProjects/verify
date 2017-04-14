@@ -1,7 +1,8 @@
 package com.ulfric.verify;
 
+import org.junit.jupiter.api.Assertions;
+
 import com.ulfric.verify.exception.ExceptionMatcher;
-import com.ulfric.verify.exception.VerificationException;
 import com.ulfric.verify.function.CheckedRunnable;
 import com.ulfric.verify.verb.RunnableVerb;
 
@@ -25,7 +26,7 @@ class RunnableSubject<T extends CheckedRunnable> extends ObjectSubject<T> implem
 			return;
 		}
 
-		throw new VerificationException("No exception was thrown");
+		Assertions.fail("No exception was thrown");
 	}
 
 	@Override
@@ -41,7 +42,7 @@ class RunnableSubject<T extends CheckedRunnable> extends ObjectSubject<T> implem
 			return;
 		}
 
-		throw new VerificationException("No exception was thrown");
+		Assertions.fail("No exception was thrown");
 	}
 
 	@Override
@@ -53,7 +54,7 @@ class RunnableSubject<T extends CheckedRunnable> extends ObjectSubject<T> implem
 		}
 		catch (Throwable thrown)
 		{
-			throw new VerificationException("An exception was thrown", thrown);
+			Assertions.fail("An exception was thrown " + thrown);
 		}
 	}
 

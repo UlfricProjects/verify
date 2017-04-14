@@ -2,13 +2,15 @@ package com.ulfric.verify.exception;
 
 import java.util.Objects;
 
+import org.junit.jupiter.api.Assertions;
+
 public class ExceptionMatcher {
 
 	public static void verifyWasCause(Throwable thrown, Class<? extends Throwable> expected)
 	{
 		if (thrown == null)
 		{
-			throw new VerificationException("Failed to find exception " + expected.getSimpleName());
+			Assertions.fail("Failed to find exception " + expected.getSimpleName());
 		}
 
 		if (expected.isInstance(thrown))
@@ -23,7 +25,7 @@ public class ExceptionMatcher {
 	{
 		if (thrown == null)
 		{
-			throw new VerificationException("Failed to find exception " + expected.getSimpleName());
+			Assertions.fail("Failed to find exception " + expected.getSimpleName());
 		}
 
 		if (expected.isInstance(thrown) && Objects.equals(thrown.getMessage(), message))

@@ -1,5 +1,7 @@
 package com.ulfric.verify;
 
+import org.junit.jupiter.api.Assertions;
+
 import com.ulfric.verify.verb.NumberVerb;
 
 class NumberSubject extends ObjectSubject<Number> implements NumberVerb {
@@ -17,7 +19,7 @@ class NumberSubject extends ObjectSubject<Number> implements NumberVerb {
 			return;
 		}
 
-		this.error("Expected non-zero, but was " + this.subject);
+		Assertions.fail("Expected non-zero, but was " + this.subject);
 	}
 
 	@Override
@@ -28,7 +30,7 @@ class NumberSubject extends ObjectSubject<Number> implements NumberVerb {
 			return;
 		}
 
-		this.error("Expected zero, but was " + this.subject);
+		Assertions.fail("Expected zero, but was " + this.subject);
 	}
 
 }

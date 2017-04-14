@@ -1,5 +1,7 @@
 package com.ulfric.verify;
 
+import org.junit.jupiter.api.Assertions;
+
 import com.ulfric.verify.verb.BooleanVerb;
 
 class BooleanSubject extends ObjectSubject<Boolean> implements BooleanVerb {
@@ -17,7 +19,7 @@ class BooleanSubject extends ObjectSubject<Boolean> implements BooleanVerb {
 			return;
 		}
 
-		this.error("expected true, was false");
+		Assertions.fail("expected true, was false");
 	}
 
 	@Override
@@ -28,7 +30,7 @@ class BooleanSubject extends ObjectSubject<Boolean> implements BooleanVerb {
 			return;
 		}
 
-		this.error("expected false, was true");
+		Assertions.fail("expected false, was true");
 	}
 
 }

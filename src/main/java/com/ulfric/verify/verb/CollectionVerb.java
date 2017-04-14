@@ -10,4 +10,6 @@ public interface CollectionVerb extends ObjectVerb {
 
 	void isNotEmpty();
 
+	void isSize(int size);
+
 }

@@ -1,6 +1,7 @@
 package com.ulfric.verify;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.junit.jupiter.api.Assertions;
 
 import com.ulfric.verify.function.CheckedSupplier;
 import com.ulfric.verify.verb.SupplierVerb;
@@ -20,7 +21,7 @@ class SupplierSubject extends RunnableSubject<CheckedSupplier<?>> implements Sup
 			return;
 		}
 
-		this.error("expected non-unique values to be supplied, was unique");
+		Assertions.fail("expected non-unique values to be supplied, was unique");
 	}
 
 	@Override
@@ -31,7 +32,7 @@ class SupplierSubject extends RunnableSubject<CheckedSupplier<?>> implements Sup
 			return;
 		}
 
-		this.error("expected unique values to be supplied, was non-unique");
+		Assertions.fail("expected unique values to be supplied, was non-unique");
 	}
 
 	@Override
@@ -44,7 +45,7 @@ class SupplierSubject extends RunnableSubject<CheckedSupplier<?>> implements Sup
 			return;
 		}
 
-		this.error("expected not null, was " + subject);
+		Assertions.fail("expected not null, was " + subject);
 	}
 
 	@Override
@@ -57,7 +58,7 @@ class SupplierSubject extends RunnableSubject<CheckedSupplier<?>> implements Sup
 			return;
 		}
 
-		this.error("expected null, was not null");
+		Assertions.fail("expected null, was not null");
 	}
 
 	@Override
@@ -70,7 +71,7 @@ class SupplierSubject extends RunnableSubject<CheckedSupplier<?>> implements Sup
 			return;
 		}
 
-		this.error("expected the same as " + other + ", was " + subject);
+		Assertions.fail("expected the same as " + other + ", was " + subject);
 	}
 
 	@Override
@@ -83,7 +84,7 @@ class SupplierSubject extends RunnableSubject<CheckedSupplier<?>> implements Sup
 			return;
 		}
 
-		this.error("expected anything except for " + ", was the same");
+		Assertions.fail("expected anything except for " + ", was the same");
 	}
 
 	@Override
@@ -96,7 +97,7 @@ class SupplierSubject extends RunnableSubject<CheckedSupplier<?>> implements Sup
 			return;
 		}
 
-		this.error("expected equal to " + other + ", was " + subject);
+		Assertions.fail("expected equal to " + other + ", was " + subject);
 	}
 
 	@Override
@@ -109,7 +110,7 @@ class SupplierSubject extends RunnableSubject<CheckedSupplier<?>> implements Sup
 			return;
 		}
 
-		this.error("expected not equal to " + other + ", was " + subject);
+		Assertions.fail("expected not equal to " + other + ", was " + subject);
 	}
 
 	@Override
@@ -122,7 +123,7 @@ class SupplierSubject extends RunnableSubject<CheckedSupplier<?>> implements Sup
 			return;
 		}
 
-		this.error("expected an instance of " + clazz + ", was " + subject.getClass());
+		Assertions.fail("expected an instance of " + clazz + ", was " + subject.getClass());
 	}
 
 	@Override
@@ -135,7 +136,7 @@ class SupplierSubject extends RunnableSubject<CheckedSupplier<?>> implements Sup
 			return;
 		}
 
-		this.error("expected not an instance of " + clazz + ", was an instance of the same type");
+		Assertions.fail("expected not an instance of " + clazz + ", was an instance of the same type");
 	}
 
 	@Override
@@ -148,7 +149,7 @@ class SupplierSubject extends RunnableSubject<CheckedSupplier<?>> implements Sup
 			return;
 		}
 
-		this.error("expected an instance of exactly " + clazz + ", was an instance of " + subject.getClass());
+		Assertions.fail("expected an instance of exactly " + clazz + ", was an instance of " + subject.getClass());
 	}
 
 	@Override
@@ -161,7 +162,7 @@ class SupplierSubject extends RunnableSubject<CheckedSupplier<?>> implements Sup
 			return;
 		}
 
-		this.error("expected not an instance of exactly " + clazz + ", was an instance of the same type");
+		Assertions.fail("expected not an instance of exactly " + clazz + ", was an instance of the same type");
 	}
 
 	private Object getValue()

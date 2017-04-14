@@ -2,6 +2,8 @@ package com.ulfric.verify;
 
 import java.util.Collection;
 
+import org.junit.jupiter.api.Assertions;
+
 import com.ulfric.verify.verb.CollectionVerb;
 
 class CollectionSubject extends ObjectSubject<Collection<?>> implements CollectionVerb {
@@ -19,7 +21,7 @@ class CollectionSubject extends ObjectSubject<Collection<?>> implements Collecti
 			return;
 		}
 
-		this.error("Expected " + this.subject + " to contain " + value + ", but did not");
+		Assertions.fail("Expected " + this.subject + " to contain " + value + ", but did not");
 	}
 
 	@Override
@@ -30,7 +32,7 @@ class CollectionSubject extends ObjectSubject<Collection<?>> implements Collecti
 			return;
 		}
 
-		this.error("Expected " + this.subject + " to not contain " + value + ", but did");
+		Assertions.fail("Expected " + this.subject + " to not contain " + value + ", but did");
 	}
 
 	@Override
@@ -41,7 +43,7 @@ class CollectionSubject extends ObjectSubject<Collection<?>> implements Collecti
 			return;
 		}
 
-		this.error("Expected " + this.subject + " to be empty");
+		Assertions.fail("Expected " + this.subject + " to be empty");
 	}
 
 	@Override
@@ -52,7 +54,18 @@ class CollectionSubject extends ObjectSubject<Collection<?>> implements Collecti
 			return;
 		}
 
-		this.error("Expected " + this.subject + " to not be empty");
+		Assertions.fail("Expected " + this.subject + " to not be empty");
+	}
+
+	@Override
+	public final void isSize(int size)
+	{
+		if (this.subject.size() == size)
+		{
+			return;
+		}
+
+		Assertions.fail("Expected " + this.subject + " to be size " + size);
 	}
 
 }

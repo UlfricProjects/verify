@@ -3,6 +3,8 @@ package com.ulfric.verify;
 import java.lang.reflect.Member;
 import java.lang.reflect.Modifier;
 
+import org.junit.jupiter.api.Assertions;
+
 import com.ulfric.verify.verb.MemberVerb;
 
 class MemberSubject extends ObjectSubject<Member> implements MemberVerb {
@@ -20,7 +22,7 @@ class MemberSubject extends ObjectSubject<Member> implements MemberVerb {
 			return;
 		}
 
-		this.error("expected a final member, was not final");
+		Assertions.fail("expected a final member, was not final");
 	}
 
 	@Override
@@ -31,7 +33,7 @@ class MemberSubject extends ObjectSubject<Member> implements MemberVerb {
 			return;
 		}
 
-		this.error("expected a public member, was not public");
+		Assertions.fail("expected a public member, was not public");
 	}
 
 	@Override
@@ -42,7 +44,7 @@ class MemberSubject extends ObjectSubject<Member> implements MemberVerb {
 			return;
 		}
 
-		this.error("expected a private member, was not private");
+		Assertions.fail("expected a private member, was not private");
 	}
 
 }

@@ -1,6 +1,7 @@
 package com.ulfric.verify;
 
 import org.apache.commons.lang3.ArrayUtils;
+import org.junit.jupiter.api.Assertions;
 
 import com.ulfric.verify.verb.CollectionVerb;
 
@@ -19,7 +20,7 @@ class ArraySubject extends ObjectSubject<Object[]> implements CollectionVerb {
 			return;
 		}
 
-		this.error("Expected " + this.subject + " to contain " + value + ", but did not");
+		Assertions.fail("Expected " + this.subject + " to contain " + value + ", but did not");
 	}
 
 	@Override
@@ -30,7 +31,7 @@ class ArraySubject extends ObjectSubject<Object[]> implements CollectionVerb {
 			return;
 		}
 
-		this.error("Expected " + this.subject + " to not contain " + value + ", but did");
+		Assertions.fail("Expected " + this.subject + " to not contain " + value + ", but did");
 	}
 
 	@Override
@@ -41,7 +42,7 @@ class ArraySubject extends ObjectSubject<Object[]> implements CollectionVerb {
 			return;
 		}
 
-		this.error("Expected " + this.subject + " to be empty");
+		Assertions.fail("Expected " + this.subject + " to be empty");
 	}
 
 	@Override
@@ -52,7 +53,18 @@ class ArraySubject extends ObjectSubject<Object[]> implements CollectionVerb {
 			return;
 		}
 
-		this.error("Expected " + this.subject + " to not be empty");
+		Assertions.fail("Expected " + this.subject + " to not be empty");
+	}
+
+	@Override
+	public final void isSize(int size)
+	{
+		if (this.subject.length == size)
+		{
+			return;
+		}
+
+		Assertions.fail("Expected " + this.subject + " to be size " + size);
 	}
 
 }
