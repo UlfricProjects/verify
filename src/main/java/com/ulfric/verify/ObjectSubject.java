@@ -54,7 +54,7 @@ class ObjectSubject<T> extends Subject<T> implements ObjectVerb {
 			return;
 		}
 
-		Assertions.fail("expected anything except for " + ", was the same");
+		Assertions.fail("expected anything except for " + this.subject + ", was the same");
 	}
 
 	@Override
