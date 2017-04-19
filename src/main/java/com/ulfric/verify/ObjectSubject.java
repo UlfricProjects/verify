@@ -87,7 +87,8 @@ class ObjectSubject<T> extends Subject<T> implements ObjectVerb {
 			return;
 		}
 
-		Assertions.fail("expected an instance of " + clazz + ", was " + this.subject.getClass());
+		Class<?> subjectClass = this.subject == null ? null : this.subject.getClass();
+		Assertions.fail("expected an instance of " + clazz + ", was " + subjectClass);
 	}
 
 	@Override
